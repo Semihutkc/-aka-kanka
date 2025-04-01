@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 Nisan Şakası</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 20%;
+            position: relative;
+        }
+        #container {
+            display: inline-block;
+            position: relative;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+        #noBtn {
+            position: absolute;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>1 Nisan Şakası İster misin?</h1>
+    <div id="container">
+        <button id="yesBtn" onclick="jumpscare()">Evet</button>
+        <button id="noBtn" onmouseover="moveButton()">Hayır</button>
+    </div>
+    <div id="scare" class="hidden">
+        <img src="https://i.imgur.com/zvcPQGf.jpg" width="100%">
+        <audio autoplay>
+            <source src="https://www.fesliyanstudios.com/play-mp3/4380" type="audio/mpeg">
+        </audio>
+    </div>
+    <script>
+        function moveButton() {
+            let noBtn = document.getElementById("noBtn");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+        function jumpscare() {
+            document.body.innerHTML = document.getElementById("scare").innerHTML;
+        }
+    </script>
+</body>
+</html>
